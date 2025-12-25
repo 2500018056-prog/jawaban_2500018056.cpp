@@ -1,0 +1,42 @@
+// ============================================
+// NAMA   : Hafiz Tryan Nugraha
+// NIM    : 2500018056
+// QUIZ   : Penjumlahan Rekursif
+// TANGGAL: 24/12/2025]
+// ============================================
+#include <iostream>
+using namespace std;
+
+// Perbaiki fungsi rekursif penjumlahan ini!
+int jumlah(int n) {
+	// ❌ KESALAHAN 1: Base case tidak menangani n == 0 return 1;
+    // SEBELUM: if (n == 1) return 1;
+    // PERBAIKAN: if (n == 0) return 0;
+    if (n == 0) {  
+	
+        return 0;
+    }
+    // ❌ KESALAHAN 2: Operasi rekursi yang salah (perkalian)
+    // SEBELUM: return n * jumlah(n - 1);
+    // PERBAIKAN: return n + jumlah(n - 1);
+    return n + jumlah(n - 1);  
+}
+
+int main() {
+    int angka;
+    cout << "Masukkan angka: ";
+    cin >> angka;
+    // ❌ KESALAHAN 3: Pemanggilan fungsi dikurangi 1
+    // SEBELUM: jumlah(angka - 1)
+    // PERBAIKAN:jumlah(angka)
+    cout << "Jumlah dari 1 hingga " << angka << " adalah: " << jumlah(angka) << endl;  
+    
+    return 0;
+    
+// ============================================
+// RINGKASAN KESALAHAN YANG DITEMUKAN:
+// 1. kesalahan terdapat Pada if (n == 1 ) dan return 1; kemudian di perbaiki menjadi (n == 1 ) return 0;
+// 2. Sebelumnya perkalian (*) dan setelah perbaikan menjadi penjumlahan (+)
+// 3. Pemanggilan fungsi jumlah(angka - 1) di ubah  menjadi jumlah(angka)
+// ============================================
+}
